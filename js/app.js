@@ -15,7 +15,15 @@ const displaySearchResult = meals => {
         const div = document.createElement("div");
         div.classList.add("col")
         div.innerHTML = `
-        
+        <div class="card">
+            <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+            <div class="card-body">
+
+                <h2 class="card-title">${meal.strMeal}</h2>
+                <h4>${meal.strArea}</h4>
+                <p class="card-text">${meal.strInstructions.slice(0, 250)}</p>
+            </div>
+        </div>
         `;
         fishContainer.appendChild(div);
     }
