@@ -8,3 +8,11 @@ const searchFood = () => {
         .then(res => res.json())
         .then(data => (data.meals))
 }
+const displaySearchResult = meals => {
+    const fishContainer = document.getElementById("search-result");
+    for (const meal of meals) {
+        console.log(meal)
+        const div = document.createElement("div");
+
+    }
+}
