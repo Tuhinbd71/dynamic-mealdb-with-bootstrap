@@ -13,6 +13,10 @@ const displaySearchResult = meals => {
     for (const meal of meals) {
         console.log(meal)
         const div = document.createElement("div");
-
+        div.classList.add("col")
+        div.innerHTML = `
+        
+        `;
+        fishContainer.appendChild(div);
     }
 }
