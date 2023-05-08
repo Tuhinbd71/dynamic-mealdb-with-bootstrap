@@ -15,17 +15,8 @@ const searchFood = () => {
 const displaySearchResult = meals => {
     const searchResult = document.getElementById("search-result");
     searchResult.textContent = " ";
-    const noFoundData = document.getElementById("no-data");
     if (meals.length == 0) {
-        const div = document.createElement("div");
-        div.classList.add("card-body")
-        div.innerHTML = `
-        <div class="card-body">
-            <h5 class="card-title">${meal.strMeal}</h5>
-            <p class="card-text">${meal.strInstructions.slice(0, 150)}</p>
-        </div>
-        `;
-        noFoundData.appendChild(div)
+
     }
     for (const meal of meals) {
         const div = document.createElement("div");
