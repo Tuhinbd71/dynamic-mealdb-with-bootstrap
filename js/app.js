@@ -1,15 +1,32 @@
 const searchFood = () => {
     const searchField = document.getElementById("search-field");
     const searchFieldText = searchField.value;
-    // console.log(searchFieldText);
     searchField.value = " ";
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchFieldText}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displaySearchResult(data.meals))
+    if (searchFieldText == " ") {
+        // Please show something
+    }
+    else {
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchFieldText}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displaySearchResult(data.meals))
+    }
 }
 const displaySearchResult = meals => {
-    const fishContainer = document.getElementById("search-result");
+    const searchResult = document.getElementById("search-result");
+    searchResult.textContent = " ";
+    const noFoundData = document.getElementById("no-data");
+    if (meals.length == 0) {
+        const div = document.createElement("div");
+        div.classList.add("card-body")
+        div.innerHTML = `
+        <div class="card-body">
+            <h5 class="card-title">${meal.strMeal}</h5>
+            <p class="card-text">${meal.strInstructions.slice(0, 150)}</p>
+        </div>
+        `;
+        noFoundData.appendChild(div)
+    }
     for (const meal of meals) {
         const div = document.createElement("div");
         div.classList.add("col")
@@ -24,7 +41,7 @@ const displaySearchResult = meals => {
             </div>
         </div>
         `;
-        fishContainer.appendChild(div);
+        searchResult.appendChild(div);
     }
 }
 const loadMealDetails = mealId => {
