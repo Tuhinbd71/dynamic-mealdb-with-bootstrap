@@ -11,7 +11,6 @@ const searchFood = () => {
 const displaySearchResult = meals => {
     const fishContainer = document.getElementById("search-result");
     for (const meal of meals) {
-        // console.log(meal)
         const div = document.createElement("div");
         div.classList.add("col")
         div.innerHTML = `
@@ -48,5 +47,4 @@ const displayMealDetails = meal => {
         </div>
     `;
     mealDetailes.appendChild(div);
-
 }
