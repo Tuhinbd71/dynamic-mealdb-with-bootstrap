@@ -16,7 +16,6 @@ const displaySearchResult = meals => {
     const searchResult = document.getElementById("search-result");
     searchResult.textContent = " ";
     if (meals.length == 0) {
-
     }
     for (const meal of meals) {
         const div = document.createElement("div");
